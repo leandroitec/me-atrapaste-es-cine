@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tickets',
+    'usuarios',
 ]
 
 MIDDLEWARE = [
@@ -117,4 +118,4 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-AUTH_USER_MODEL = 'tickets.UsuarioPersonalizado'
+AUTH_USER_MODEL = 'usuarios.UsuarioPersonalizado'
