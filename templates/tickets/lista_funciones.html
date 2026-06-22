@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold text-dark">⏰ Horarios y Funciones</h2>
+    {% if perms.tickets.add_funcion %}
+        <a href="{% url 'crear_funcion' %}" class="btn btn-warning fw-bold text-dark">+ Programar Función</a>
+    {% endif %}
+</div>
+
+<div class="card shadow border-0 bg-white p-3">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Película</th>
+                    <th>Sala</th>
+                    <th>Formato</th>
+                    <th>Fecha y Hora</th>
+                    <th>Precio</th>
+                    {% if perms.tickets.change_funcion or perms.tickets.delete_funcion %}
+                        <th class="text-center">Acciones</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for f in funciones %}
+                <tr>
+                    <td class="fw-bold">{{ f.pelicula.titulo }}</td>
+                    <td>{{ f.sala.nombre }}</td>
+                    <td><span class="badge bg-secondary">{{ f.formato }}</span></td>
+                    <td>{{ f.fecha_hora|date:"d/m/Y H:i" }} hs</td>
+                    <td class="text-success fw-bold">${{ f.precio_entrada }}</td>
+                    {% if perms.tickets.change_funcion or perms.tickets.delete_funcion %}
+                    <td class="text-center">
+                        <div class="d-flex justify-content-center gap-2">
+                            {% if perms.tickets.change_funcion %}
+                                <a href="{% url 'editar_funcion' f.id %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                            {% endif %}
+                            {% if perms.tickets.delete_funcion %}
+                                <a href="{% url 'eliminar_funcion' f.id %}" class="btn btn-sm btn-outline-danger">Borrar</a>
+                            {% endif %}
+                        </div>
+                    </td>
+                    {% endif %}
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center text-muted py-4">No hay funciones programadas por el momento.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
