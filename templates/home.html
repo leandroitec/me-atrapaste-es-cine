@@ -1,8 +1,98 @@
 {% extends 'base.html' %}
+{% load static %} {% block contenido %}
+<div class="row justify-content-center mb-5">
+    <div class="col-md-8 text-center">
+        <div class="card bg-dark text-white border-0 shadow-lg overflow-hidden">
+            <!-- Cargamos la foto del meme -->
+            <img src="{% static 'img/meatrapaste.jpg' %}" class="card-img opacity-75" alt="Me atrapaste, es cine" style="max-height: 500px; object-fit: cover;">
+            <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);">
+                <h1 class="display-5 fw-extrabold text-warning mb-1">🎬 Me Atrapaste, Es Cine</h1>
+                <p class="card-text text-light opacity-90 fs-5 mb-3">Bienvenidos a la experiencia definitiva de la cartelera online.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-{% block contenido %}
-<div class="p-5 mb-4 bg-white rounded-3 shadow-sm border text-center">
-    <h1 class="display-5 fw-bold text-dark">🍿 Bienvenidos a la Cartelera</h1>
-    <p class="fs-5 text-muted mt-3">Pronto listaremos acá todas las funciones disponibles en cartelera.</p>
+<hr class="my-5 opacity-25">
+<div class="my-5">
+    <div class="text-center mb-5">
+        <span class="badge bg-warning text-dark fw-bold px-3 py-2 text-uppercase mb-2">¡Imperdibles!</span>
+        <h2 class="fw-bold text-dark">🥤 El Patio de Comidas: Combos & Pochoclos</h2>
+        <p class="text-muted">Ahorrá comprando tus combos online antes de ingresar a la sala</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 bg-white">
+                <div class="position-absolute top-0 start-0 m-3" style="z-index: 10;">
+                    <span class="badge bg-danger fw-bold px-2 py-1">15% OFF</span>
+                </div>
+                <img src="{% static 'img/combo1.jpeg' %}" class="card-img-top rounded-top" alt="Combo Individual" style="height: 250px;">
+                
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold text-dark">Combo Individual</h5>
+                    <p class="card-text text-muted small">Y si te sale Messi? Incluye 1 Gaseosa + 3 paquetes de figuritas.</p>
+                    <hr class="text-muted opacity-25">
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                        <span class="text-decoration-line-through text-muted small">$6.000</span>
+                        <span class="fs-4 fw-bold text-success">$5.100</span>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-0 pb-4 px-4">
+                    <a href="{% url 'lista_peliculas' %}" class="btn btn-dark w-100 fw-bold text-center text-white">
+                        Ir a la Cartelera
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow border-2 border-warning bg-white position-relative">
+                <div class="position-absolute top-0 start-50 translate-middle" style="z-index: 10;">
+                    <span class="badge bg-warning text-dark fw-bold px-3 py-1 text-uppercase shadow-sm">¡El Más Vendido!</span>
+                </div>
+                <img src="{% static 'img/combo2.jpeg' %}" class="card-img-top rounded-top" alt="Combo Dueto" style="height: 250px;">
+                
+                <div class="card-body text-center mt-2">
+                    <h5 class="card-title fw-bold text-dark">Combo Dueto</h5>
+                    <p class="card-text text-muted small">Para disfrutar de a dos. Incluye 1 Balde gigante de pochoclos (dulce o salado) + 2 Gaseosas grandes.</p>
+                    <hr class="text-muted opacity-25">
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                        <span class="text-decoration-line-through text-muted small">$18.000</span>
+                        <span class="fs-4 fw-bold text-success">$15.999</span>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-0 pb-4 px-4">
+                    <a href="{% url 'lista_peliculas' %}" class="btn btn-dark w-100 fw-bold text-center text-white">
+                        Ir a la Cartelera
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 bg-white">
+                <div class="position-absolute top-0 start-0 m-3" style="z-index: 10;">
+                    <span class="badge bg-danger fw-bold px-2 py-1">25% OFF</span>
+                </div>
+                <img src="{% static 'img/combopelota.jpeg' %}" class="card-img-top rounded-top" alt="Combo Mega Familiar" style="height: 250px;">
+                
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold text-dark">Combo Mega Mundial</h5>
+                    <p class="card-text text-muted small">Para la banda futbolera. Incluye 1 pelota de pochoclos + 3 Gaseosas medianas + 1 Chocolate de regalo.</p>
+                    <hr class="text-muted opacity-25">
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                        <span class="text-decoration-line-through text-muted small">$20.000</span>
+                        <span class="fs-4 fw-bold text-success">$15.000</span>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-0 pb-4 px-4">
+                    <a href="{% url 'lista_peliculas' %}" class="btn btn-dark w-100 fw-bold text-center text-white">
+                        Ir a la Cartelera
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
