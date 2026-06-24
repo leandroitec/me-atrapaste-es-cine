@@ -78,3 +78,6 @@ Trabajo práctico evaluativo desarrollado en Django para la gestión integral de
     python manage.py migrate
     python manage.py runserver
 
+5. Ejecutar: 
+    npm run dev
+    
